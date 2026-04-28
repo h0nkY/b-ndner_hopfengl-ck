@@ -11,11 +11,74 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>Cookie-Einstellungen</h3>
+                <p>Wir verwenden Cookies, um unsere Website zu verbessern und personalisierte Inhalte anzubieten. Sie können Ihre Cookie-Einstellungen jederzeit anpassen.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Alle akzeptieren</button>
+                <button class="cookie-btn cookie-btn-necessary" onclick="acceptNecessaryCookies()">Nur notwendige</button>
+                <button class="cookie-btn cookie-btn-settings" onclick="showCookieSettings()">Einstellungen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookieSettingsModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeCookieSettings()">&times;</span>
+            <h2>Cookie-Einstellungen</h2>
+            <div class="legal-content">
+                <p>Wir verwenden Cookies, um unsere Website zu verbessern und personalisierte Inhalte anzubieten. Bitte wählen Sie aus, welche Arten von Cookies Sie zulassen möchten.</p>
+                
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <h3>Notwendige Cookies</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="necessaryCookies" checked disabled>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p>Diese Cookies sind für die Funktionsweise der Website unerlässlich und können nicht deaktiviert werden.</p>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <h3>Statistik-Cookies</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="statisticsCookies">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p>Diese Cookies helfen uns zu verstehen, wie Besucher unsere Website nutzen. Die Informationen werden anonymisiert gesammelt.</p>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <h3>Marketing-Cookies</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="marketingCookies">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p>Diese Cookies werden verwendet, um personalisierte Werbung und Inhalte von Drittanbietern wie Instagram anzuzeigen.</p>
+                </div>
+
+                <div class="cookie-settings-buttons">
+                    <button class="cookie-btn cookie-btn-accept" onclick="saveCookieSettings()">Speichern</button>
+                    <button class="cookie-btn cookie-btn-necessary" onclick="acceptNecessaryCookies()">Nur notwendige</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="assets/logo.svg" alt="Hopfenglück Logo" class="logo-img">
+                <img src="assets/Hopfenglück_Header.png" alt="Bündner Hopfenglück Logo" class="logo-img">
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -40,16 +103,17 @@
         </div>
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="assets/logo-large.svg" alt="Hopfenglück Logo">
+                <img src="assets/BündnerHopfenglück_Logo_highquali.png" alt="Bündner Hopfenglück Logo">
             </div>
-            <h1 class="hero-title">Hopfenglück</h1>
-            <p class="hero-subtitle">Handgebrautes Glück aus den Schweizer Alpen</p>
+            <h1 class="hero-title">Bündner Hopfenglück</h1>
+            <p class="hero-subtitle">Ehrliches Bier aus Says</p>
+            <p class="hero-description">Unser naturtrübes Golden Ale bringt euch den Geschmack der Bündner Berge direkt ins Glas: gold-orange Farbe, vollmundig und mit einer fein abgestimmten Hopfennote.</p>
+            <p class="hero-description">Gebraut in kleinen Chargen, kontrolliert und ohne Kompromisse.</p>
+            <p class="hero-description">Ob nach der Wanderung, auf der Velotour oder in der Beiz:<br>Bündner Hopfenglück ist genau da zuhause, wo man den Moment geniesst.</p>
+            <p class="hero-tagline"><strong>Klein gebraut. Schnell weg.</strong></p>
             <a href="#product" class="cta-button">Unser Bier entdecken</a>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
+            </section>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -60,12 +124,15 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>In den malerischen Tälern Graubündens, wo klare Bergquellen aus den Gipfeln der Alpen fliessen und die Luft rein und frisch ist, begann unsere Reise. Hopfenglück ist mehr als nur Bier – es ist die Essenz unserer Heimat, gefangen in jeder Flasche.</p>
-                    <p>Seit Generationen brauen wir mit traditionellen Methoden und den besten Zutaten, die unsere Region zu bieten hat. Jeder Schluck erzählt eine Geschichte von Handwerk, Leidenschaft und dem unvergleichlichen Gefühl alpiner Freiheit.</p>
-                    <p>Wir glauben daran, dass wahres Glück in den einfachen Dingen liegt: in der Freundschaft, der Natur und natürlich in einem perfekten Bier. Das ist unser Versprechen.</p>
+                    <p>Eine Brauerei mit Wurzeln – und neuem Kapitel.</p>
+                    <p>Die Basis wurde 2015 von unserem Brauvater Jürg Augsburger gelegt. Unter dem Namen JJ's Sayser Bier baute er die Brauerei mit viel Herzblut auf – unterstützt von seinem Sohn Jannis.</p>
+                    <p>Nach intensiven Jahren zog sich Jürg aus dem aktiven Brauen zurück. Danach übernahmen vier junge Brauer aus der Region die Anlage und führten die Brauerei unter dem Namen Valtur bis Ende 2025 weiter.</p>
+                    <p>Aus ihrem Abschluss entstand ein neuer Anfang: Bündner Hopfenglück.</p>
+                    <p>Wir führen die Brauerei heute mit Respekt vor dem, was aufgebaut wurde weiter – und mit einem klaren Fokus auf Qualität, Regionalität und einem modernen Auftritt.</p>
+                    <p><strong>Verwurzelt in Says. Gebraut für die Region.</strong></p>
                 </div>
                 <div class="about-image">
-                    <img src="assets/brewery.jpg" alt="Unsere Brauerei in den Alpen" class="image-frame">
+                    <img src="assets/Hopfenglück - Das Blonde.jpg" alt="Unsere Brauerei in den Alpen" class="image-frame">
                 </div>
             </div>
         </div>
@@ -83,25 +150,32 @@
                     <img src="assets/Label.png" alt="Hopfenglück Bierlabel" class="bottle-image">
                 </div>
                 <div class="product-info">
-                    <h3>Hopfenglück Original</h3>
-                    <p class="product-description">Ein ausgewogenes, vollmundiges Bier mit harmonischer Hopfenbittere und maliger Süssigkeit. Perfekt für Momente des Genusses und der Gemeinschaft.</p>
+                    <h3>Golden Ale</h3>
+                    <p class="product-description">Ein Golden Ale wie gemacht für gute Momente. Naturtrüb, gold-orange im Glas und angenehm vollmundig – unser Bier vereint eine weiche Malzbasis mit einer fein abgestimmten Hopfennote. Leicht genug für den Sommer, spannend genug für Bierliebhaber.</p>
                     <div class="product-facts">
                         <div class="fact-item">
                             <span class="fact-label">Typ:</span>
-                            <span class="fact-value">Helles Vollbier</span>
+                            <span class="fact-value">Golden Ale</span>
                         </div>
                         <div class="fact-item">
-                            <span class="fact-label">Geschmack:</span>
-                            <span class="fact-value">Mild, fruchtig, mit blumigen Noten</span>
+                            <span class="fact-label">Erscheinung:</span>
+                            <span class="fact-value">Naturtrüb, gold-orange</span>
                         </div>
                         <div class="fact-item">
-                            <span class="fact-label">Alkohol:</span>
-                            <span class="fact-value">5.2% vol.</span>
+                            <span class="fact-label">Chargengrösse:</span>
+                            <span class="fact-value">ca. 200 Liter</span>
                         </div>
                         <div class="fact-item">
-                            <span class="fact-label">Zutaten:</span>
-                            <span class="fact-value">Wasser, Malz, Hopfen, Hefe</span>
+                            <span class="fact-label">Rohstoffe:</span>
+                            <span class="fact-value">BIO-Zertifizierung geplant</span>
                         </div>
+                    </div>
+                    <div class="product-features">
+                        <h4>Unsere Produktion</h4>
+                        <p>Bei uns steht Qualität vor Masse. Deshalb produzieren wir bewusst in kleinen Chargen von rund 200 Litern. So stellen wir sicher, dass jede Abfüllung frisch und aromatisch bei dir ankommt.</p>
+                        <p>Wir verwenden ausschliesslich hochwertige BIO-Rohstoffe – eine offizielle Zertifizierung ist bereits in Planung.</p>
+                        <p>Jedes Produkt entsteht in ehrlicher Handarbeit. Vom ersten Schritt bis zur fertigen Flasche legen wir Wert auf Sorgfalt, Transparenz und echtes Handwerk.</p>
+                        <p><strong>Nachhaltig gedacht: Wir setzen auf Mehrweg statt Einweg und erheben für jede Flasche ein Depot. So bleibt unser Bier nicht nur im Kopf, sondern auch im Kreislauf.</strong></p>
                     </div>
                 </div>
             </div>
@@ -115,7 +189,7 @@
         </div>
         <div class="container">
             <div class="section-header">
-                <h2>Das Hopfenglück Erlebnis</h2>
+                <h2>Erlebnis</h2>
                 <div class="divider"></div>
             </div>
             <div class="experience-content">
@@ -129,23 +203,24 @@
     <section id="availability" class="availability">
         <div class="container">
             <div class="section-header">
-                <h2>Wo Sie uns finden</h2>
+                <h2>Wo man das Hopfenglück findet</h2>
                 <div class="divider"></div>
             </div>
             <div class="availability-content">
-                <p>Hopfenglück ist an ausgewählten Orten erhältlich, die unsere Werte von Qualität und Authentizität teilen. Wir arbeiten eng mit Partnern zusammen, die das gleiche Streben nach Exzellenz haben.</p>
+                <p>Regional. Direkt. Ohne Umwege.</p>
+                <p>Ihr findet Bündner Hopfenglück in ausgewählten Gastronomiebetrieben rund um Chur – und überall dort, wo man Wert auf ein gutes Bier legt.</p>
                 <div class="locations-grid">
                     <div class="location-item">
-                        <h3>Regionale Partner</h3>
-                        <p>Feinkostläden und Spezialitätenmärkte in Graubünden und Umgebung</p>
+                        <h3>Partner</h3>
+                        <p>Ausgewählte Gastronomiebetriebe mit Fokus auf Qualität</p>
                     </div>
                     <div class="location-item">
-                        <h3>Gastronomie</h3>
-                        <p>Ausgewählte Restaurants und Berghütten mit Fokus auf regionale Küche</p>
+                        <h3>Gastro</h3>
+                        <p>Restaurants und Beizen rund um Chur und in der Region</p>
                     </div>
                     <div class="location-item">
-                        <h3>Online</h3>
-                        <p>Versand direkt von unserer Brauerei – frisch zu Ihnen nach Hause</p>
+                        <h3>Vor Ort</h3>
+                        <p>Direkt ab Brauerei in Says (am besten kurz vorher melden)</p>
                     </div>
                 </div>
             </div>
@@ -162,31 +237,13 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <h3>Brauerei Hopfenglück</h3>
-                        <p>Alpenweg 42<br>7500 St. Moritz<br>Schweiz</p>
+                        <h3>Interesse an Bündner Hopfenglück?</h3>
+                        <p>Ob für eure Beiz, einen Event oder den spontanen Zwischenhalt in Says – wir freuen uns auf eure Nachricht.</p>
+                        <p>Oder kommt einfach vorbei. Tipp: am besten kurz vorher melden.</p>
+                        <p><strong>Telefon: +41 78 446 9177</strong></p>
+                        <p><strong>E-Mail: info@buendner-hopfenglueck.com</strong></p>
+                        <p><strong>Instagram: <a href="https://www.instagram.com/hopfenglueck_official?igsh=MW5lemFwdWpoN29yMg==" target="_blank" style="color: var(--color-dark-brown); text-decoration: none;">@hopfenglueck_offical</a></strong></p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Erreichen Sie uns</h3>
-                        <p>Email: info@hopfenglueck.ch<br>Telefon: +41 81 123 45 67</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Öffnungszeiten</h3>
-                        <p>Mo-Fr: 08:00-17:00<br>Sa: 09:00-14:00<br>So: Geschlossen</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Ihr Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Ihre Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Ihre Nachricht" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Nachricht senden</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -197,14 +254,19 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/logo.svg" alt="Hopfenglück Logo">
+                    <img src="assets/BündnerHopfenglück_Logo_highquali.png" alt="Bündner Hopfenglück Logo" onclick="scrollToTop()" style="cursor: pointer;">
                 </div>
                 <div class="footer-links">
-                    <a href="#imprint">Impressum</a>
-                    <a href="#privacy">Datenschutz</a>
+                    <a href="#" onclick="showImprint(); return false;">Impressum</a>
+                    <a href="#" onclick="showPrivacy(); return false;">Datenschutz</a>
+                </div>
+                <div class="footer-pixelwerk">
+                    <a href="https://www.pixelwerk-domleschg.ch" target="_blank">
+                        <img src="assets/PowerBy_PixelWerk_Domleschg_trans.PNG" alt="Pixelwerk - Website Ersteller" style="height: 90px;">
+                    </a>
                 </div>
                 <div class="footer-copyright">
-                    <p>&copy; 2024 Hopfenglück. Alle Rechte vorbehalten.</p>
+                    <p>&copy; 2026 Hopfenglück. Alle Rechte vorbehalten.</p>
                 </div>
             </div>
         </div>
@@ -223,5 +285,300 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Cookie Management
+        const COOKIE_CONSENT_KEY = 'hopfengluck_cookie_consent';
+        
+        function checkCookieConsent() {
+            const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+            if (!consent) {
+                // Show cookie banner on first visit
+                document.getElementById('cookieBanner').style.display = 'block';
+                // Block marketing content until consent
+                blockMarketingContent();
+            } else {
+                // Apply saved consent settings
+                applyCookieSettings(JSON.parse(consent));
+            }
+        }
+        
+        function acceptAllCookies() {
+            const settings = {
+                necessary: true,
+                statistics: true,
+                marketing: true
+            };
+            saveCookieConsent(settings);
+            document.getElementById('cookieBanner').style.display = 'none';
+            applyCookieSettings(settings);
+        }
+        
+        function acceptNecessaryCookies() {
+            const settings = {
+                necessary: true,
+                statistics: false,
+                marketing: false
+            };
+            saveCookieConsent(settings);
+            document.getElementById('cookieBanner').style.display = 'none';
+            applyCookieSettings(settings);
+        }
+        
+        function saveCookieSettings() {
+            const settings = {
+                necessary: true,
+                statistics: document.getElementById('statisticsCookies').checked,
+                marketing: document.getElementById('marketingCookies').checked
+            };
+            saveCookieConsent(settings);
+            document.getElementById('cookieSettingsModal').style.display = 'none';
+            applyCookieSettings(settings);
+        }
+        
+        function saveCookieConsent(settings) {
+            localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(settings));
+        }
+        
+        function applyCookieSettings(settings) {
+            // Load marketing content if marketing cookies are accepted
+            if (settings.marketing) {
+                loadMarketingContent();
+            } else {
+                blockMarketingContent();
+            }
+            
+            // Load statistics tracking if statistics cookies are accepted
+            if (settings.statistics) {
+                // Placeholder for analytics (Google Analytics, etc.)
+                console.log('Statistics cookies enabled');
+            }
+        }
+        
+        function blockMarketingContent() {
+            // Block Instagram embed
+            const instagramLink = document.querySelector('a[href*="instagram.com"]');
+            if (instagramLink) {
+                instagramLink.style.display = 'none';
+                // Add placeholder
+                const placeholder = document.createElement('div');
+                placeholder.className = 'instagram-placeholder';
+                placeholder.innerHTML = '<p style="color: var(--color-dark-brown); opacity: 0.7; font-size: 0.9rem;">Instagram-Inhalte sind aufgrund von Cookie-Einstellungen deaktiviert. <a href="#" onclick="showCookieSettings(); return false;" style="color: var(--color-gold);">Einstellungen anpassen</a></p>';
+                instagramLink.parentNode.insertBefore(placeholder, instagramLink);
+            }
+        }
+        
+        function loadMarketingContent() {
+            // Show Instagram embed
+            const instagramLink = document.querySelector('a[href*="instagram.com"]');
+            if (instagramLink) {
+                instagramLink.style.display = 'inline';
+                // Remove placeholder if exists
+                const placeholder = document.querySelector('.instagram-placeholder');
+                if (placeholder) {
+                    placeholder.remove();
+                }
+            }
+        }
+        
+        function showCookieSettings() {
+            // Load current settings
+            const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+            if (consent) {
+                const settings = JSON.parse(consent);
+                document.getElementById('statisticsCookies').checked = settings.statistics;
+                document.getElementById('marketingCookies').checked = settings.marketing;
+            }
+            document.getElementById('cookieSettingsModal').style.display = 'block';
+        }
+        
+        function closeCookieSettings() {
+            document.getElementById('cookieSettingsModal').style.display = 'none';
+        }
+        
+        // Initialize cookie consent on page load
+        window.addEventListener('load', function() {
+            checkCookieConsent();
+            // Show age verification
+            document.getElementById('ageModal').style.display = 'block';
+        });
+        
+        // Update modal close function to handle cookie modal
+        window.onclick = function(event) {
+            const imprintModal = document.getElementById('imprintModal');
+            const privacyModal = document.getElementById('privacyModal');
+            const cookieModal = document.getElementById('cookieSettingsModal');
+            
+            if (event.target == imprintModal) {
+                imprintModal.style.display = 'none';
+            }
+            if (event.target == privacyModal) {
+                privacyModal.style.display = 'none';
+            }
+            if (event.target == cookieModal) {
+                cookieModal.style.display = 'none';
+            }
+        }
+    </script>
+<!-- Impressum Modal -->
+    <div id="imprintModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeImprint()">&times;</span>
+            <h2>Impressum</h2>
+            <div class="legal-content">
+                <h3>Bündner Hopfenglück KLG</h3>
+                <p>Valtanna 3<br>
+                7202 Says<br>
+                Schweiz</p>
+                <p>Telefon: 078 446 9177<br>
+                E-Mail: <a href="mailto:info@buendner-hopfenglueck.com">info@buendner-hopfenglueck.com</a></p>
+                
+                <h3>Vertretungsberechtigte Personen</h3>
+                <p>Bündner Hopfenglück KLG</p>
+                
+                <h3>Unternehmens-Identifikationsnummer (UID)</h3>
+                <p>CHE-244.706.589</p>
+                
+                <h3>Haftungsausschluss</h3>
+                <p>Die Inhalte unserer Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+                <p>Haftungsansprüche gegen Bündner Hopfenglück KLG wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen entstanden sind, werden ausgeschlossen.</p>
+                
+                <h3>Haftung für Links</h3>
+                <p>Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr der Nutzerinnen und Nutzer.</p>
+                
+                <h3>Urheberrechte</h3>
+                <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschliesslich Bündner Hopfenglück KLG oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Rechteinhaber im Voraus einzuholen.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closePrivacy()">&times;</span>
+            <h2>Datenschutzerklärung</h2>
+            <div class="legal-content">
+                <h3>1. Allgemeine Hinweise</h3>
+                <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. In dieser Datenschutzerklärung informieren wir Sie darüber, welche personenbezogenen Daten wir auf unserer Website erheben und wie wir diese verwenden.</p>
+                <p>Die Datenbearbeitung erfolgt im Einklang mit dem Schweizer Datenschutzgesetz (DSG) sowie – sofern anwendbar – der Datenschutz-Grundverordnung (DSGVO).</p>
+                
+                <h3>2. Verantwortliche Stelle</h3>
+                <p>Bündner Hopfenglück KLG<br>
+                Valtanna 3<br>
+                7202 Says<br>
+                Schweiz</p>
+                <p>E-Mail: <a href="mailto:info@buendner-hopfenglueck.com">info@buendner-hopfenglueck.com</a><br>
+                Telefon: 078 446 9177</p>
+                
+                <h3>3. Erhebung und Verarbeitung personenbezogener Daten</h3>
+                <p>Wir erheben personenbezogene Daten nur, wenn Sie uns diese freiwillig mitteilen, z. B. über:</p>
+                <ul>
+                    <li>Kontaktformular</li>
+                    <li>E-Mail-Anfragen</li>
+                    <li>Telefonische Anfragen</li>
+                </ul>
+                <p>Folgende Daten können dabei verarbeitet werden:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>E-Mail-Adresse</li>
+                    <li>Telefonnummer</li>
+                    <li>Nachricht</li>
+                </ul>
+                <p>Diese Daten werden ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+                
+                <h3>4. Zugriffsdaten (Server-Logfiles)</h3>
+                <p>Beim Besuch unserer Website werden automatisch Informationen erhoben:</p>
+                <ul>
+                    <li>IP-Adresse</li>
+                    <li>Datum und Uhrzeit der Anfrage</li>
+                    <li>Browsertyp und Version</li>
+                    <li>Betriebssystem</li>
+                    <li>Referrer-URL</li>
+                </ul>
+                <p>Diese Daten dienen ausschliesslich der Sicherstellung eines störungsfreien Betriebs der Website und werden nicht mit anderen Datenquellen zusammengeführt.</p>
+                
+                <h3>5. Cookies</h3>
+                <p>Unsere Website verwendet Cookies. Diese dienen dazu, unser Angebot nutzerfreundlicher zu machen.</p>
+                <p>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden oder Cookies generell deaktivieren.</p>
+                
+                <h3>6. Instagram</h3>
+                <p>Wir betreiben ein Profil auf der Plattform Instagram. Anbieter ist Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.</p>
+                <p>Unser Instagram-Profil ist erreichbar unter:<br>
+                <a href="https://www.instagram.com/hopfenglueck_official" target="_blank">https://www.instagram.com/hopfenglueck_official</a></p>
+                <p>Wenn Sie unser Instagram-Profil besuchen oder Inhalte von Instagram auf unserer Website eingebunden sind, können personenbezogene Daten an Instagram übermittelt werden.</p>
+                <p>Dazu gehören insbesondere:</p>
+                <ul>
+                    <li>Ihre IP-Adresse</li>
+                    <li>Informationen über Ihr Nutzungsverhalten</li>
+                    <li>Interaktionen mit unserem Profil (z. B. Likes, Kommentare, Nachrichten)</li>
+                </ul>
+                <p>Wenn Sie bei Instagram eingeloggt sind, kann Instagram den Besuch direkt Ihrem Benutzerkonto zuordnen.</p>
+                <p>Wir weisen darauf hin, dass wir keinen Einfluss auf die Datenverarbeitung durch Instagram haben. Die Nutzung erfolgt auf eigene Verantwortung.</p>
+                <p>Weitere Informationen zur Datenverarbeitung durch Instagram finden Sie unter:<br>
+                <a href="https://privacycenter.instagram.com/policy" target="_blank">https://privacycenter.instagram.com/policy</a></p>
+                
+                <h3>7. Kontaktaufnahme</h3>
+                <p>Wenn Sie uns per E-Mail oder Formular kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.</p>
+                <p>Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+                
+                <h3>8. Ihre Rechte</h3>
+                <p>Sie haben im Rahmen des geltenden Datenschutzrechts folgende Rechte:</p>
+                <ul>
+                    <li>Auskunft über Ihre gespeicherten Daten</li>
+                    <li>Berichtigung unrichtiger Daten</li>
+                    <li>Löschung Ihrer Daten (sofern gesetzlich zulässig)</li>
+                    <li>Einschränkung der Verarbeitung</li>
+                    <li>Widerspruch gegen die Datenverarbeitung</li>
+                </ul>
+                <p>Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte per E-Mail.</p>
+                
+                <h3>9. Datensicherheit</h3>
+                <p>Wir setzen technische und organisatorische Sicherheitsmassnahmen ein, um Ihre Daten vor Verlust, Missbrauch oder unbefugtem Zugriff zu schützen.</p>
+                
+                <h3>10. Änderungen</h3>
+                <p>Wir behalten uns vor, diese Datenschutzerklärung jederzeit anzupassen. Es gilt die jeweils aktuelle Version auf unserer Website.</p>
+                
+                <p><strong>Stand:</strong> April 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function showImprint() {
+            document.getElementById('imprintModal').style.display = 'block';
+        }
+        
+        function closeImprint() {
+            document.getElementById('imprintModal').style.display = 'none';
+        }
+        
+        function showPrivacy() {
+            document.getElementById('privacyModal').style.display = 'block';
+        }
+        
+        function closePrivacy() {
+            document.getElementById('privacyModal').style.display = 'none';
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const imprintModal = document.getElementById('imprintModal');
+            const privacyModal = document.getElementById('privacyModal');
+            
+            if (event.target == imprintModal) {
+                imprintModal.style.display = 'none';
+            }
+            if (event.target == privacyModal) {
+                privacyModal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
